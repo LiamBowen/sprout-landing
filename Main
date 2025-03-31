@@ -1,0 +1,51 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+export default function Home() {
+  return (
+    <div className="bg-white text-gray-900 min-h-screen flex flex-col items-center">
+      {/* Navbar */}
+      <nav className="w-full max-w-6xl p-4 flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Sprout</h1>
+        <button className="px-4 py-2 bg-green-500 text-white rounded-lg">Get Started</button>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="text-center mt-20 px-6">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="text-5xl font-bold mb-4"
+        >
+          Grow Your Wealth, Effortlessly
+        </motion.h2>
+        <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          Round up your everyday purchases and invest the spare change automatically.
+        </p>
+        <button className="mt-6 px-6 py-3 bg-green-600 text-white text-lg rounded-xl shadow-md">
+          Start Investing
+        </button>
+      </section>
+
+      {/* Features Section */}
+      <section className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl px-6">
+        <FeatureCard title="Auto-Investing" description="Effortlessly invest spare change from everyday transactions." />
+        <FeatureCard title="AI Coaching" description="Smart insights to help you make better financial decisions." />
+        <FeatureCard title="Social Investing" description="See what your friends are investing in and grow together." />
+      </section>
+    </div>
+  );
+}
+
+function FeatureCard({ title, description }) {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }} 
+      animate={{ opacity: 1, scale: 1 }}
+      className="p-6 bg-gray-100 rounded-xl shadow-md text-center"
+    >
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="text-gray-600 mt-2">{description}</p>
+    </motion.div>
+  );
+}
